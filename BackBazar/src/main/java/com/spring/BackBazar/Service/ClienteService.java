@@ -14,7 +14,7 @@ public class ClienteService implements IClienteService {
     private IClienteRepository clienteRepository;
 
     @Override
-    public List<Cliente> getPersonas() {
+    public List<Cliente> getClientes() {
         return List.of();
     }
 
@@ -34,7 +34,7 @@ public class ClienteService implements IClienteService {
     }
 
     @Override
-    public void editCliente(Long idOriginal, Long idNueva, String nombreNuevo, String nuevoApellido, String dni) {
+    public void editCliente(Cliente cli) {
 
     }
 }
