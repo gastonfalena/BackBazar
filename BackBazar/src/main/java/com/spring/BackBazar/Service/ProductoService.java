@@ -11,26 +11,26 @@ public class ProductoService implements IProductoService {
     IProductoRepository productoRepository;
     @Override
     public List<Producto> getProductos() {
-        return List.of();
+        return productoRepository.findAll();
     }
 
     @Override
     public void saveProducto(Producto prod) {
-
+        productoRepository.save(prod);
     }
 
     @Override
     public void deleteeProducto(Long id) {
-
+        productoRepository.deleteById(id);
     }
 
     @Override
     public Producto findProducto(Long id) {
-        return null;
+        return productoRepository.findById(id).orElse(null);
     }
 
     @Override
     public void editProducto(Producto prod) {
-
+        this.saveProducto(prod);
     }
 }
