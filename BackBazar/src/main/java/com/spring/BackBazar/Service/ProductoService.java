@@ -3,9 +3,11 @@ package com.spring.BackBazar.Service;
 import com.spring.BackBazar.Model.Producto;
 import com.spring.BackBazar.Repository.IProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductoService implements IProductoService {
     @Autowired
     IProductoRepository productoRepository;

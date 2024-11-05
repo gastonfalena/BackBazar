@@ -1,5 +1,6 @@
 package com.spring.BackBazar.Controller;
 
+import com.spring.BackBazar.Model.Cliente;
 import com.spring.BackBazar.Model.Producto;
 import com.spring.BackBazar.Service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("productos")
+@RequestMapping("/productos")
 public class ProductoController {
     @Autowired
     private IProductoService productoService;
 
-    @GetMapping("/traer")
+    @GetMapping("/all")
     public List<Producto> getProductos(){
         return productoService.getProductos();
+    }
+    @GetMapping("/{id}")
+    public Producto getProducto(@PathVariable Long id){
+        return productoService.findProducto(id);
     }
     @PostMapping("/crear")
     public String saveProducto(@RequestBody Producto prod){
