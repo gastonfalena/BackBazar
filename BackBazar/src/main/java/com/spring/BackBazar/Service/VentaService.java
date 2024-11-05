@@ -5,35 +5,39 @@ import com.spring.BackBazar.Model.Producto;
 import com.spring.BackBazar.Model.Venta;
 import com.spring.BackBazar.Repository.IVentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class VentaService implements IVentasService {
+@Service
+public class VentaService implements IVentaService {
+
     @Autowired
-    IVentaRepository ventaRepository;
+    private IVentaRepository ventaRepository;
+
     @Override
     public List<Venta> getVentas() {
-        return List.of();
+        return ventaRepository.findAll();
     }
 
     @Override
-    public void saveVenta(Venta vent) {
-
+    public void saveVenta(Venta venta) {
+        ventaRepository.save(venta);
     }
 
     @Override
     public void deleteVenta(Long id) {
-
+        ventaRepository.deleteById(id);
     }
 
     @Override
     public Venta findVenta(Long id) {
-        return null;
+        return ventaRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void editVenta(Venta vent) {
-
+    public void editVenta(Venta venta) {
+        this.saveVenta(venta);
     }
 }
