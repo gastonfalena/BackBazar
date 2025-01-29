@@ -1,5 +1,7 @@
 package com.spring.BackBazar.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,5 +30,6 @@ public class Cliente {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+
     }
 }

@@ -1,6 +1,7 @@
 package com.spring.BackBazar.Service;
 
 
+import com.spring.BackBazar.Model.DetalleVenta;
 import com.spring.BackBazar.Model.Venta;
 
 import java.util.List;

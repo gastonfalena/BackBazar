@@ -1,6 +1,9 @@
 package com.spring.BackBazar.Controller;
 
+import com.spring.BackBazar.DTO.VentaCrearDTO;
+import com.spring.BackBazar.Model.Cliente;
 import com.spring.BackBazar.Model.Venta;
+import com.spring.BackBazar.Service.IClienteService;
 import com.spring.BackBazar.Service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +16,24 @@ public class VentaController {
 
     @Autowired
     private IVentaService ventaService;
+    @Autowired
+    private IClienteService clienteService;
 
     @GetMapping("/traer")
     public List<Venta> getVentas() {
         return ventaService.getVentas();
     }
 
-    @PostMapping("/crear")
-    public String saveVenta(@RequestBody Venta venta) {
+    @PostMapping(value= "/crear",consumes = {"application/xml","application/json"})
+    public String saveVenta(@RequestBody VentaCrearDTO ventaC) {
+
+        Cliente cliente = clienteService.findCliente(ventaC.getId_cliente());
+        // Crear la entidad Venta
+        Venta venta = new Venta();
+        venta.setFecha_venta(ventaC.getFecha_venta());
+        venta.setTotal(ventaC.getTotal());
+        venta.setCliente(cliente);
+        venta.setDetallesVenta(ventaC.getDetallesVenta());
         ventaService.saveVenta(venta);
         return "La venta fue creada correctamente";
     }
