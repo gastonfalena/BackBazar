@@ -1,6 +1,7 @@
 package com.spring.BackBazar.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Cliente {
     private String apellido;
     private String dni;
     @OneToMany(mappedBy="cliente",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnore
     private List<Venta> ventas = new ArrayList<>();
     public Cliente () {
     }

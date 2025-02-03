@@ -33,10 +33,12 @@ public class Venta {
     // Constructores
     public Venta() {}
 
-    public Venta(Long codigo_venta, LocalDate fecha_venta, double total, Cliente cliente) {
+    public Venta(Long codigo_venta, LocalDate fecha_venta, double total, Cliente cliente,List<DetalleVenta> detallesventa) {
         this.codigo_venta = codigo_venta;
         this.fecha_venta = fecha_venta;
         this.total = total;
         this.cliente = cliente;
+        this.detallesVenta=detallesventa;
+
     }
 }

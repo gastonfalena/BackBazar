@@ -15,14 +15,14 @@ public class VentaCrearDTO {
 
     private LocalDate fecha_venta; // Fecha de la venta
     private double total;          // Total de la venta
-    private Long id_cliente;       // ID del cliente
+    private Long cliente_id;       // ID del cliente
     private List<DetalleVenta> detallesVenta;
 
-    public VentaCrearDTO(LocalDate fecha_venta,double total,Long id_cliente,List<DetalleVenta> detallesVenta) {
+    public VentaCrearDTO(LocalDate fecha_venta,double total,Long cliente_id,List<DetalleVenta> detallesVenta) {
 
         this.fecha_venta=fecha_venta;
         this.total=total;
-        this.id_cliente= id_cliente;
+        this.cliente_id= cliente_id;
         this.detallesVenta=detallesVenta;
     }
 }

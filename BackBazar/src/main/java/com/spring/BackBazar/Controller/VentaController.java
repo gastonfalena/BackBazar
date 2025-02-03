@@ -27,7 +27,7 @@ public class VentaController {
     @PostMapping(value= "/crear",consumes = {"application/xml","application/json"})
     public String saveVenta(@RequestBody VentaCrearDTO ventaC) {
 
-        Cliente cliente = clienteService.findCliente(ventaC.getId_cliente());
+        Cliente cliente = clienteService.findCliente(ventaC.getCliente_id());
         // Crear la entidad Venta
         Venta venta = new Venta();
         venta.setFecha_venta(ventaC.getFecha_venta());
