@@ -1,6 +1,7 @@
 package com.spring.BackBazar.Model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class Producto {
     private double costo;
     private double cantidad_disponible;
     @OneToMany(mappedBy = "producto")
+    @JsonIgnore
     private List<DetalleVenta> detallesVenta = new ArrayList<>();
 
     public Producto() {

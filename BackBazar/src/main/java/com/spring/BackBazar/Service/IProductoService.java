@@ -8,4 +8,5 @@ public interface IProductoService {
     public void deleteeProducto(Long id);
     public Producto findProducto(Long id);
     public void editProducto(Producto prod);
+    public List<Producto> getPocoStock();
 }

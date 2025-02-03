@@ -37,4 +37,8 @@ public class ProductoController {
         productoService.editProducto(prod);
         return productoService.findProducto(prod.getCodigo_producto());
     }
+    @GetMapping("/falta_stock")
+    public List<Producto> getPocoStock(){
+        return productoService.getPocoStock();
+    }
 }

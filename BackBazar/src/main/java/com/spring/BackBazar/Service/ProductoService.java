@@ -35,4 +35,9 @@ public class ProductoService implements IProductoService {
     public void editProducto(Producto prod) {
         this.saveProducto(prod);
     }
+
+    public List<Producto> getPocoStock(){
+        List<Producto>PocoStock = productoRepository.obtenerProductosConStockMenor(5);
+        return PocoStock;
+    }
 }
